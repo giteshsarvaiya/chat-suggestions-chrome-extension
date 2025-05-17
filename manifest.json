@@ -1,0 +1,9 @@
+{
+    "manifest_version": 3,
+    "name": "Bot Reply Generator",
+    "version": "1.0",
+    "description": "Generate replies using different bot tones via Shapes API.",
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
