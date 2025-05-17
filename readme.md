@@ -39,6 +39,7 @@ export const SHAPES_API_KEY = "<your-API-key>";
 Replace `<your-API-key>` with your actual Shapes API key.
 
 ---
+you can get your api key from https://shapes.inc
 
 ## Folder Structure
 
