@@ -3,7 +3,17 @@
     "name": "Bot Reply Generator",
     "version": "1.0",
     "description": "Generate replies using different bot tones via Shapes API.",
+    "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+    },
     "action": {
-      "default_popup": "popup.html"
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+      }
     }
   }
