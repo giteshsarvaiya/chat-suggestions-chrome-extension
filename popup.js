@@ -53,3 +53,30 @@ document.getElementById('copyBtn').addEventListener('click', () => {
       setTimeout(() => btn.textContent = 'Copy', 1500);
     });
   });
+
+  document.getElementById('autoReplyToggle').addEventListener('change', async (e) => {
+    const enabled = e.target.checked;
+    console.log(enabled);
+  
+    const selectedBot = document.getElementById('botSelector').value;
+    chrome.storage.local.set({ selectedBot });
+  
+    // Disable or enable other inputs
+    ['botSelector', 'userMessage', 'instructions', 'generateBtn'].forEach(id => {
+      document.getElementById(id).disabled = enabled;
+    });
+  
+    // Send message to content script in active tab
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (enabled) {
+      chrome.tabs.sendMessage(tab.id, {
+        type: "ENABLE_AUTO_REPLY",
+        bot: selectedBot
+      });
+    } else {
+      chrome.tabs.sendMessage(tab.id, {
+        type: "DISABLE_AUTO_REPLY"
+      });
+    }
+  });
+  

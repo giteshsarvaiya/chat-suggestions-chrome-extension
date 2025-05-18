@@ -15,5 +15,18 @@
         "48": "icon.png",
         "128": "icon.png"
       }
+    },
+ "permissions": ["activeTab", "scripting", "storage"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+    "service_worker": "background.js"
+    },
+    "content_scripts": [
+    {
+        "matches": ["<all_urls>"],
+        "js": ["contentScript.js"],
+        "run_at": "document_idle",
+        "type": "module"
     }
+    ]
   }
